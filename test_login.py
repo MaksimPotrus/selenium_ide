@@ -10,17 +10,36 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+from logger import LoggerABM,verify
 
-class TestLogin():
+
+@pytest.mark.usefixtures("setup")
+class TestLogin:
+
+        # @pytest.fixture(autouse=True)
+        # def setup1(self, setup):
+        #     abm_pages = ABMPages(setup)
+        #     self.base = BaseTestSearchPage(setup)
+        #     self.home_page = abm_pages.home_page
+        #     self.modal_pop_up = abm_pages.home_page.register_modal_form
+        #     self.registration_form = abm_pages.registration_page
+        #     self.search_results = abm_pages.search_result_page
+
+
+    log = LoggerABM.sample_logger()
+
     def setup_method(self, method):
-        self.driver = webdriver.Chrome()
+        # self.driver = webdriver.Chrome()
+
         self.vars = {}
 
     def teardown_method(self, method):
         self.driver.quit()
 
+    @pytest.mark.first_tests
     def test_login(self):
-        self.driver.get("https://manage.sugarwish.com/")
+
+        # self.driver.get("https://manage.sugarwish.com/")
         self.driver.set_window_size(1552, 840)
         self.driver.find_element(By.XPATH, "//span[contains(.,\'Sign In\')]").click()
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").click()
@@ -29,7 +48,15 @@ class TestLogin():
         self.driver.find_element(By.XPATH, "//input[@id=\'password\']").click()
         self.driver.find_element(By.XPATH, "//input[@id=\'password\']").send_keys("XOiz,NoIgQ-gjABROSfbqXd3")
         self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-        self.driver.find_element(By.XPATH, "//a[@id=\'desktopAccountDropdown\']/span/span[2]").click()
+
+        verify(self.driver.find_element(By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]").is_displayed(),
+               'element is not displayed',
+               'element is displayed')
+
+        wait = WebDriverWait(self.driver, 30)
+        element = wait.until(
+            expected_conditions.visibility_of_element_located((By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2")))
+        element.click()
         self.driver.find_element(By.XPATH, "//a[contains(.,\'Log Out\')]").click()
         self.driver.close()
 
