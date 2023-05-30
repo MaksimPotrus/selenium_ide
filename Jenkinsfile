@@ -41,6 +41,7 @@ stages {
         sh 'pip3 install webdriver-manager'
         sh 'pip3 install wsproto'
       sh 'pip3 install six'
+        sh 'python3 -m pip uninstall urllib3-secure-extra'
   }
 }
     stage ('Test'){
