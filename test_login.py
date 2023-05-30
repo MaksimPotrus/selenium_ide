@@ -56,7 +56,7 @@ class TestLogin:
 
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(
-            expected_conditions.visibility_of_element_located((By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]11")))
+            expected_conditions.visibility_of_element_located((By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]")))
         element.click()
         self.driver.find_element(By.XPATH, "//a[contains(.,\'Log Out\')]").click()
         self.driver.close()
