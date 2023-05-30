@@ -9,7 +9,6 @@ stages {
     
     stage('build') {
   steps {
-    sh 'pip3 install -r requirements.txt'
     sh 'pip3 install pytest'
     sh 'pip3 install selenium'
   }
