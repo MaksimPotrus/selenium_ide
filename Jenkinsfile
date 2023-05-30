@@ -37,11 +37,9 @@ stages {
         sh 'pip3 install tqdm'
         sh 'pip3 install trio'
         sh 'pip3 install trio-websocket'
-        sh 'pip3 install urllib3'
         sh 'pip3 install webdriver-manager'
         sh 'pip3 install wsproto'
       sh 'pip3 install six'
-        sh 'python3 -m pip uninstall urllib3-secure-extra'
   }
 }
     stage ('Test'){
