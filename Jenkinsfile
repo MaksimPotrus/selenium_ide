@@ -1,11 +1,17 @@
 pipeline {
 agent any
 stages {
-    stage('version') {
-      steps {
-        sh 'python3 --version'
-      }
+    stage ('GIT Checkout'){
+        steps {
+            git changelog: false, poll: false, url: 'https://github.com/MaksimPotrus/selenium_ide.git'
+        }
     }
+    
+    stage('build') {
+  steps {
+    sh 'pip install -r requirements.txt'
+  }
+}
     stage ('Test'){
         steps {
             sh 'python test_login.py'
