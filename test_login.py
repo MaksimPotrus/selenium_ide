@@ -41,6 +41,7 @@ class TestLogin:
 
         # self.driver.get("https://manage.sugarwish.com/")
         self.driver.set_window_size(1552, 840)
+        print("1111")
         self.driver.find_element(By.XPATH, "//span[contains(.,\'Sign In\')]").click()
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").click()
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").send_keys(
