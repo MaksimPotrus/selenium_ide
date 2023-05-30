@@ -15,7 +15,7 @@ stages {
 }
     stage ('Test'){
         steps {
-            sh 'pytest test_login.py --html=reports/report.html --self-contained-html'
+            sh 'pytest test_login.py'
         }
     }
 }
