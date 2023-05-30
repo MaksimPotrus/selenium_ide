@@ -9,8 +9,8 @@ stages {
     
     stage('build') {
   steps {
-    sh 'pip3 install pytest==4.9.1'
-    sh 'pip3 install selenium'
+    sh 'pip3 install pytest'
+    sh 'pip3 install selenium==4.9.1'
       sh 'pip3 install async-generator'
       sh 'pip3 install attrs'
       sh 'pip3 install certifi'
