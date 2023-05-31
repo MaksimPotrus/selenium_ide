@@ -9,7 +9,9 @@ pipeline {
 
 		stage('build') {
 			steps {
-			    sh 'python3.10 -m pip3 install --upgrade pip'
+			    sh 'python3.10 -m pip install --upgrade pip'
+			    sh 'pip3 --version'
+			    sh 'pip3 install pip==23.1.1'
 			    sh 'pip3 --version'
 			    sh 'pip3 install --upgrade pytest'
 				sh 'pip3 install -r ./requirements.txt'
