@@ -9,7 +9,7 @@ pipeline {
 
 		stage('build') {
 			steps {
-			    python -m pip install --upgrade pip
+			    sh 'python -m pip install --upgrade pip'
 				sh 'pip3.10 install -r ./requirements.txt'
 			}
 		}
