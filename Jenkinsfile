@@ -10,7 +10,7 @@ stages {
     stage('build') {
   steps {
     sh 'pip3.10 install -r ./requirements.txt'
-    sh 'pip3 install pytest'
+    sh 'pip3.10 install pytest'
     sh 'pip3.10 install selenium'
       sh 'pip3.10 install async-generator'
       sh 'pip3.10 install attrs'
@@ -44,7 +44,7 @@ stages {
 }
     stage ('Test'){
         steps {
-        sh 'pytest --version'
+        sh 'pip3.10 pytest --version'
             sh 'pytest test_login.py'
         }
     }
