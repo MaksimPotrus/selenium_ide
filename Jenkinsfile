@@ -9,7 +9,7 @@ stages {
     
     stage('build') {
   steps {
-              sh 'pip3.10 install --upgrade pip'
+              sh 'python3.10 -m ensurepip --upgrade'
     sh 'pip3.10 install -r ./requirements.txt'
     sh 'pip3.10 install pytest'
     sh 'pip3.10 install selenium'
