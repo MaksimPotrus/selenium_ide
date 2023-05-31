@@ -11,6 +11,7 @@ pipeline {
 			steps {
 			    sh 'python3.10 -m pip install --upgrade pip'
 				sh 'python3.10 -m pip install -r ./requirements.txt'
+				sh 'google-chrome --version'
 			}
 		}
 			stage('Test') {

@@ -6,6 +6,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 from logger import LoggerABM
 
@@ -14,8 +15,11 @@ logger = LoggerABM.sample_logger(logLevel=logging.INFO)
 @pytest.fixture
 def setup(request):
     global driver
+    chrome_options = Options()
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--headless")  # Запуск у фоновому режимі
     logger.info("\nstart chrome browser for test")
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     logger.info("\nstart ")
     # driver.maximize_window()
     driver.implicitly_wait(10)
