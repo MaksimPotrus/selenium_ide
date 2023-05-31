@@ -10,7 +10,6 @@ stages {
     stage('build') {
   steps {
               sh 'python3.10 -m ensurepip --upgrade'
-    sh 'pip3.10 install -r ./requirements.txt'
     sh 'pip3.10 install pytest'
     sh 'pip3.10 install selenium'
       sh 'pip3.10 install async-generator'
