@@ -17,7 +17,7 @@ def setup(request):
     global driver
     chrome_options = Options()
     chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--headless")  # Запуск у фоновому режимі
+    # chrome_options.add_argument("--headless")
     logger.info("\nstart chrome browser for test")
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     logger.info("\nstart ")
