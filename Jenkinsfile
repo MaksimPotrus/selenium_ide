@@ -9,6 +9,7 @@ stages {
     
     stage('build') {
   steps {
+              sh 'pip3.10 install --upgrade pip'
     sh 'pip3.10 install -r ./requirements.txt'
     sh 'pip3.10 install pytest'
     sh 'pip3.10 install selenium'
@@ -40,7 +41,6 @@ stages {
         sh 'pip3.10 install webdriver-manager'
         sh 'pip3.10 install wsproto'
       sh 'pip3.10 install six'
-        sh 'pip3.10 install --upgrade pip'
   }
 }
     stage ('Test'){
