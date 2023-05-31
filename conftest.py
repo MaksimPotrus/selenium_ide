@@ -17,9 +17,9 @@ def setup(request):
     global driver
     chrome_options = Options()
     chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     logger.info("\nstart chrome browser for test")
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     logger.info("\nstart ")
     # driver.maximize_window()
     driver.implicitly_wait(10)
