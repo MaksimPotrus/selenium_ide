@@ -9,6 +9,7 @@ stages {
     
     stage('build') {
   steps {
+      sh '/usr/bin/python3 -m pip install --upgrade pip'
     sh 'pip3 install -r requirements.txt'
   }
 }
