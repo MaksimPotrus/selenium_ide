@@ -9,8 +9,8 @@ stages {
     
     stage('build') {
   steps {
-      sh '/usr/bin/python3 -m pip install --upgrade pip'
-    sh 'pip3 install -r requirements.txt'
+      sh '/usr/bin/python3 -m pip3.10 install --upgrade pip'
+    sh 'pip3.10 install -r requirements.txt'
   }
 }
     stage ('Test'){
