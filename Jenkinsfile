@@ -10,6 +10,7 @@ pipeline {
 		stage('build') {
 			steps {
 			    sh 'python3.10 -m pip install --upgrade pip'
+			    sh 'pip install --upgrade dbus-python'
 				sh 'pip3 install -r ./requirements.txt'
 			}
 		}
