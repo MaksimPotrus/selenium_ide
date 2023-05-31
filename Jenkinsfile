@@ -40,6 +40,7 @@ stages {
         sh 'pip3.10 install webdriver-manager'
         sh 'pip3.10 install wsproto'
       sh 'pip3.10 install six'
+        sh 'pip3.10 install --upgrade pip'
   }
 }
     stage ('Test'){
