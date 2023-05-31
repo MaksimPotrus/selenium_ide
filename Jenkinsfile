@@ -43,7 +43,7 @@ stages {
 }
     stage ('Test'){
         steps {
-        sh 'pip3.10 pytest --version'
+        sh 'pip3 pytest --version'
             sh 'pytest test_login.py'
         }
     }
