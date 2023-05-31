@@ -40,12 +40,11 @@ stages {
         sh 'pip3.10 install webdriver-manager'
         sh 'pip3.10 install wsproto'
       sh 'pip3.10 install six'
-      sh 'pytest --version'
   }
 }
     stage ('Test'){
         steps {
-        sh 'pytest --version'
+        sh 'pytest3.10 --version'
             sh 'pytest test_login.py'
         }
     }
