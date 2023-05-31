@@ -44,7 +44,7 @@ stages {
 }
     stage ('Test'){
         steps {
-            sh 'pytest test_login.py'
+            sh 'pytest3.10 test_login.py'
         }
     }
 }
