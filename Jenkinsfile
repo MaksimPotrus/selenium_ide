@@ -44,7 +44,7 @@ stages {
 }
     stage ('Test'){
         steps {
-        sh 'pytest --version'
+        sh '/var/lib/jenkins/.local/lib/python3.7/site-packages/pytest --version'
             sh 'pytest test_login.py'
         }
     }
