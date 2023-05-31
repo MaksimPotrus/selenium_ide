@@ -9,8 +9,8 @@ stages {
     
     stage('build') {
   steps {
-        sh 'pip3 install --upgrade pip'
-        sh 'pip3 install pytest selenium async-generator attrs certifi cffi charset-normalizer h11 idna iniconfig outcome packaging pluggy py pycparser PySocks pytest-html pytest-metadata python-dotenv requests selenium sniffio sortedcontainers tomli tqdm trio trio-websocket webdriver-manager wsproto six'
+     sh 'pip3 install --upgrade pip'
+    sh 'pip3 install -r requirements.txt'
   }
 }
     stage ('Test'){
