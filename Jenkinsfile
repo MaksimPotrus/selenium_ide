@@ -15,8 +15,8 @@ pipeline {
 		}
 			stage('Test') {
 				steps {
-					sh 'pytest --version'
-					sh 'pytest test_login.py'
+					sh 'python3.10 pytest --version'
+					sh 'python3.10 -m pytest test_login.py'
 				}
 			}
 		}
