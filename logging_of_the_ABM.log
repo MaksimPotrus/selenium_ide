@@ -1,11 +1,11 @@
-06/01/2023 12:11:17 PM - INFO - test_login : 
+06/01/2023 12:52:04 PM - INFO - test_login : 
 click on //span[contains(.,'Sign In')]
-06/01/2023 12:11:17 PM - INFO - test_log06/01/2023 12:11:30 PM - INFO - <module> : quit browser..
+06/01/2023 12:52:04 PM - INFO - test_log06/01/2023 12:52:17 PM - INFO - <module> : quit browser..
  PM - INFO - test_login : 
 send email
-06/01/2023 12:11:17 PM - INFO - test_login : 
+06/01/2023 12:52:05 PM - INFO - test_login : 
 click on //input[@id='password']
-06/01/2023 12:11:17 PM - INFO - test_login : 
+06/01/2023 12:52:05 PM - INFO - test_login : 
 send password
-06/01/2023 12:11:19 PM - INFO - test_login : 
+06/01/2023 12:52:07 PM - INFO - test_login : 
 click on submit
