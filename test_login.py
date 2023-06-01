@@ -26,7 +26,7 @@ class TestLogin:
         #     self.search_results = abm_pages.search_result_page
 
 
-    log = LoggerABM.sample_logger()
+
 
     def setup_method(self, method):
         # self.driver = webdriver.Chrome()
@@ -38,10 +38,10 @@ class TestLogin:
 
     @pytest.mark.first_tests
     def test_login(self):
+        log = LoggerABM.sample_logger()
 
         # self.driver.get("https://manage.sugarwish.com/")
         self.driver.set_window_size(1552, 840)
-        print("1111")
         self.driver.find_element(By.XPATH, "//span[contains(.,\'Sign In\')]").click()
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").click()
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").send_keys(
@@ -60,4 +60,5 @@ class TestLogin:
         element.click()
         self.driver.find_element(By.XPATH, "//a[contains(.,\'Log Out\')]").click()
         self.driver.close()
+        log.info("\nstart ")
 
