@@ -26,6 +26,11 @@ def setup(request):
     # driver.maximize_window()
     driver.implicitly_wait(10)
     driver.get("https://manage.sugarwish.com/")
+    driver.delete_all_cookies()
+    # Clear cache by executing JavaScript
+    driver.execute_script("localStorage.clear();")
+    driver.execute_script("sessionStorage.clear();")
+    driver.execute_script("window.location.reload();")
     request.cls.driver = driver
     yield driver
     logger.info("quit browser..")
