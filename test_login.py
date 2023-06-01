@@ -43,22 +43,29 @@ class TestLogin:
         # self.driver.get("https://manage.sugarwish.com/")
         self.driver.set_window_size(1552, 840)
         self.driver.find_element(By.XPATH, "//span[contains(.,\'Sign In\')]").click()
+        log.info("\nclick on //span[contains(.,\'Sign In\')]")
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").click()
+        log.info("\nclick on //input[@id=\'username\']")
         self.driver.find_element(By.XPATH, "//input[@id=\'username\']").send_keys(
             "mykola_plakhotnik@pecodesoftware.com")
+        log.info("\nsend email")
         self.driver.find_element(By.XPATH, "//input[@id=\'password\']").click()
+        log.info("\nclick on //input[@id=\'password\']")
         self.driver.find_element(By.XPATH, "//input[@id=\'password\']").send_keys("XOiz,NoIgQ-gjABROSfbqXd3")
+        log.info("\nsend password")
         self.driver.find_element(By.XPATH, "//button[@type=\'submit\']").click()
-
+        log.info("\nclick on submit")
         verify(self.driver.find_element(By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]").is_displayed(),
                'element is not displayed',
                'element is displayed')
-
+        log.info("\nverify that element is displayed")
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(
             expected_conditions.visibility_of_element_located((By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]")))
         element.click()
+        log.info("\nclick on //a[@id='desktopAccountDropdown']/span/span[2]")
         self.driver.find_element(By.XPATH, "//a[contains(.,\'Log Out\')]").click()
+        log.info("\nclick on //a[contains(.,\'Log Out\')]")
         self.driver.close()
-        log.info("\nstart ")
+        log.info("\ntest finish")
 
