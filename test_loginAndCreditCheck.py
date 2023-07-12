@@ -10,22 +10,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from logger import LoggerABM,verify
-
-
 @pytest.mark.usefixtures("setup")
-class TestLogin:
-
-        # @pytest.fixture(autouse=True)
-        # def setup1(self, setup):
-        #     abm_pages = ABMPages(setup)
-        #     self.base = BaseTestSearchPage(setup)
-        #     self.home_page = abm_pages.home_page
-        #     self.modal_pop_up = abm_pages.home_page.register_modal_form
-        #     self.registration_form = abm_pages.registration_page
-        #     self.search_results = abm_pages.search_result_page
-
-
-
+class TestLoginAndAdd:
 
     def setup_method(self, method):
         # self.driver = webdriver.Chrome()
@@ -36,7 +22,7 @@ class TestLogin:
         self.driver.quit()
 
     @pytest.mark.first_tests
-    def test_login(self):
+    def test_login_and_add(self):
         log = LoggerABM.sample_logger()
 
         # self.driver.get("https://manage.sugarwish.com/")
@@ -60,11 +46,19 @@ class TestLogin:
         log.info("\nverify that element is displayed")
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(
-            expected_conditions.visibility_of_element_located((By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]")))
+            expected_conditions.visibility_of_element_located(
+                (By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]")))
+        element.click()
+        self.driver.find_element(By.XPATH, "//a[@class='sugarwish-dashboard-item']//span[text()='Happiness Dashboard']").click()
+        log.info("\ncredit is " + self.driver.find_element(By.XPATH, "//div[@class='credit-info__amount']//span[@class='amount']").text)
+        assert self.driver.find_element(By.XPATH, "//div[@class='credit-info__amount']//span[@class='amount']").text == "$0.00"
+        wait = WebDriverWait(self.driver, 30)
+        element = wait.until(
+            expected_conditions.visibility_of_element_located(
+                (By.XPATH, "//a[@id='desktopAccountDropdown']/span/span[2]")))
         element.click()
         log.info("\nclick on //a[@id='desktopAccountDropdown']/span/span[2]")
         self.driver.find_element(By.XPATH, "//a[contains(.,\'Log Out\')]").click()
         log.info("\nclick on //a[contains(.,\'Log Out\')]")
         self.driver.close()
         log.info("\ntest finish")
-
