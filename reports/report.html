@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>ABM_Automation_Report</title>
+    <title>Test Report</title>
     <style>body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -256,19 +256,9 @@ function hideExtras(colresultElem) {
 }
 
 function showFilters() {
-    let visibleString = getQueryParameter('visible') || 'all';
-    visibleString = visibleString.toLowerCase();
-    const checkedItems = visibleString.split(',');
-
     const filterItems = document.getElementsByClassName('filter');
-    for (let i = 0; i < filterItems.length; i++) {
+    for (let i = 0; i < filterItems.length; i++)
         filterItems[i].hidden = false;
-
-        if (visibleString != 'all') {
-            filterItems[i].checked = checkedItems.includes(filterItems[i].getAttribute('data-test-result'));
-            filterTable(filterItems[i]);
-        }
-    }
 }
 
 function addCollapse() {
@@ -439,9 +429,23 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>ABM_Automation_Report</h1>
-    <p>Report generated on 12-Jul-2023 at 15:40:08 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 12-Jul-2023 at 12:51:49 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "0.13.1", "py": "1.10.0", "pytest": "7.0.1"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Linux-5.19.0-1026-aws-x86_64-with-glibc2.35</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"html": "3.1.1", "metadata": "1.11.0"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.10.6</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 36.55 seconds. </p>
+    <p>1 tests ran in 25.07 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -456,37 +460,54 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_loginAndCreditCheck.py::TestLoginAndAdd::test_login_and_add</td>
-          <td class="col-duration">36.52</td>
+          <td class="col-name">test_loginAndAdd.py::TestLoginAndAdd::test_login_and_add</td>
+          <td class="col-duration">24.92</td>
           <td class="col-links"><a class="url" href="https://dev:abmdev321@staging.autobidmaster.com/en/" target="_blank">URL</a> </td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>INFO     &lt;module&gt;:conftest.py:23 
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>
+<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - ====== WebDriver manager ======
+[WDM] - Current google-chrome version is 112.0.5615
+[WDM] - Get LATEST chromedriver version for 112.0.5615 google-chrome
+[WDM] - About to download new driver from https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
+[WDM] - Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/112.0.5615.49]
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     &lt;module&gt;:conftest.py:23 
 start chrome browser for test
+INFO     WDM:logger.py:16 ====== WebDriver manager ======
+INFO     WDM:logger.py:16 Current google-chrome version is 112.0.5615
+INFO     WDM:logger.py:16 Get LATEST chromedriver version for 112.0.5615 google-chrome
+INFO     WDM:logger.py:16 About to download new driver from https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
+INFO     WDM:logger.py:16 Driver has been saved in cache [/root/.wdm/drivers/chromedriver/linux64/112.0.5615.49]
 INFO     &lt;module&gt;:conftest.py:25 
 start<br/> ------------------------------Captured stdout call------------------------------ <br/>[SUCCESS]:element is displayed
-<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     test_login_and_add:test_loginAndCreditCheck.py:31 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     test_login_and_add:test_loginAndAdd.py:31 
 click on //span[contains(.,&#x27;Sign In&#x27;)]
-INFO     test_login_and_add:test_loginAndCreditCheck.py:33 
+INFO     test_login_and_add:test_loginAndAdd.py:33 
 click on //input[@id=&#x27;username&#x27;]
-INFO     test_login_and_add:test_loginAndCreditCheck.py:36 
+INFO     test_login_and_add:test_loginAndAdd.py:36 
 send email
-INFO     test_login_and_add:test_loginAndCreditCheck.py:38 
+INFO     test_login_and_add:test_loginAndAdd.py:38 
 click on //input[@id=&#x27;password&#x27;]
-INFO     test_login_and_add:test_loginAndCreditCheck.py:40 
+INFO     test_login_and_add:test_loginAndAdd.py:40 
 send password
-INFO     test_login_and_add:test_loginAndCreditCheck.py:42 
+INFO     test_login_and_add:test_loginAndAdd.py:42 
 click on submit
-INFO     test_login_and_add:test_loginAndCreditCheck.py:46 
+INFO     test_login_and_add:test_loginAndAdd.py:46 
 verify that element is displayed
-INFO     test_login_and_add:test_loginAndCreditCheck.py:53 
-credit is $0.00
-INFO     test_login_and_add:test_loginAndCreditCheck.py:60 
+INFO     test_login_and_add:test_loginAndAdd.py:49 
+open candy page
+INFO     test_login_and_add:test_loginAndAdd.py:51 
+click on send sugarwishes 
+INFO     test_login_and_add:test_loginAndAdd.py:53 
+price is correct 25
+INFO     test_login_and_add:test_loginAndAdd.py:56 
+price is correct 50
+INFO     test_login_and_add:test_loginAndAdd.py:62 
 click on //a[@id=&#x27;desktopAccountDropdown&#x27;]/span/span[2]
-INFO     test_login_and_add:test_loginAndCreditCheck.py:62 
+INFO     test_login_and_add:test_loginAndAdd.py:64 
 click on //a[contains(.,&#x27;Log Out&#x27;)]
-INFO     test_login_and_add:test_loginAndCreditCheck.py:64 
+INFO     test_login_and_add:test_loginAndAdd.py:66 
 test finish<br/> -----------------------------Captured log teardown------------------------------ <br/>INFO     &lt;module&gt;:conftest.py:36 quit browser..
-WARNING  urllib3.connectionpool:connectionpool.py:871 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;NewConnectionError(&#x27;&lt;urllib3.connection.HTTPConnection object at 0x000001A32D23DA90&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it&#x27;)&#x27;: /session/3d7309bac7faaba2786cd35af7281984
-WARNING  urllib3.connectionpool:connectionpool.py:871 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;NewConnectionError(&#x27;&lt;urllib3.connection.HTTPConnection object at 0x000001A32D23DEB0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it&#x27;)&#x27;: /session/3d7309bac7faaba2786cd35af7281984
-WARNING  urllib3.connectionpool:connectionpool.py:871 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;NewConnectionError(&#x27;&lt;urllib3.connection.HTTPConnection object at 0x000001A32D23D910&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it&#x27;)&#x27;: /session/3d7309bac7faaba2786cd35af7281984<br/></div></td></tr></tbody></table></body></html>
+WARNING  urllib3.connectionpool:connectionpool.py:823 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;NewConnectionError(&#x27;&lt;urllib3.connection.HTTPConnection object at 0x7fc79c7ee5c0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#x27;)&#x27;: /session/4be0b627665d644830598c5c59fd4753
+WARNING  urllib3.connectionpool:connectionpool.py:823 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;NewConnectionError(&#x27;&lt;urllib3.connection.HTTPConnection object at 0x7fc79c7ee8c0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#x27;)&#x27;: /session/4be0b627665d644830598c5c59fd4753
+WARNING  urllib3.connectionpool:connectionpool.py:823 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;NewConnectionError(&#x27;&lt;urllib3.connection.HTTPConnection object at 0x7fc79c7ee4d0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#x27;)&#x27;: /session/4be0b627665d644830598c5c59fd4753<br/></div></td></tr></tbody></table></body></html>
