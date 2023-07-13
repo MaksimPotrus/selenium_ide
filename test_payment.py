@@ -64,7 +64,7 @@ class TestPayment:
         log.info("\ninput name")
         self.driver.find_element(By.XPATH, "//input[@id='receiver-email1']").send_keys("test@test.com")
         log.info("\ninput email")
-        actions.scroll_by_amount(500, 500).perform()
+        actions.scroll_to_element(self.driver.find_element(By.XPATH, "//a[@id='continue-btn-1']"))
         actions.move_to_element(self.driver.find_element(By.XPATH, "//a[@id='continue-btn-1']"))
         self.driver.find_element(By.XPATH, "//a[@id='continue-btn-1']").click()
         self.driver.find_element(By.XPATH, "//button[@id='checkout']").click()
